@@ -2,8 +2,15 @@ import React from "react";
 import stadium from "../assets/stadium.avif";
 import { FaPlay } from "react-icons/fa6";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const Landing = () => {
+  const navigate = useNavigate();
+
+  function handleListen() {
+    navigate("/more-music");
+  }
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -48,7 +55,10 @@ const Landing = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap"
           >
-            <button className="flex min-h-12 items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold tracking-[0.12em] transition-all duration-300 hover:bg-blue-700 sm:text-base cursor-pointer">
+            <button
+              onClick={() => handleListen()}
+              className="flex min-h-12 items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold tracking-[0.12em] transition-all duration-300 hover:bg-blue-700 sm:text-base cursor-pointer"
+            >
               <FaPlay /> Listen Now
             </button>
             <button className="flex min-h-12 items-center justify-center rounded-full border border-white/30 bg-black/30 px-6 py-3 text-sm font-semibold tracking-[0.12em] transition-all duration-300 hover:bg-white hover:text-black sm:text-base cursor-pointer">
